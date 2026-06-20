@@ -111,7 +111,7 @@ button {
 
 /* navbar animation*/
 .navbar {
-    animation: slideDown 0.8s ease-out/css
+    animation: slideDown 0.8s ease-out;
 }
 /*success message k liya fade in animation*/
 @keyframes fadeIn {
