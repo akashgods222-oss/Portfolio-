@@ -1,0 +1,192 @@
+body {
+  background-color: #222222;
+  color: white;
+  font-family: sans-serif;
+  padding: 20px;
+  text-align: center;
+}
+
+h1 {
+  color: #ffcc00;
+}
+
+ul {
+  text-align: left;
+}
+
+a{
+   background-color: #ff0000;
+   color: white;
+   padding: 10px 20px;
+   text-decoration:none;
+   border-radius: 5px;
+   display: inline-block;
+   font-weight: bold;
+   }
+
+/* img ko naya roop dene k liya*/
+  img{
+      border: 4px solid #ffffff; /*img k 4on taraf safeed border*/
+      border-radius: 15px; /*img ke corners ko round krne k liya*/
+      box-shadow: 0px 10px 20px rgba(0,0,0,0.5); /*img pe 3d black shadow*/
+      margin-top: 20px; /*img ko upar wale text se thoda door rakhne k liya*/
+      max-width: 90%; /*mobile screen se img bahar na jaaye*/
+      height: auto;
+  }
+
+/* heading aur button k beech thodi jagah bannane k liya*/
+h1{
+    margin-bottom: 25px; /* title k neeche thoda space dene k liya*/
+}
+
+ul{
+    margin-bottom: 30px; /* list k neeche space taki button dur rahe*/
+}
+
+input {
+  display: block;
+  margin: 10px auto;
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  width: 100px; /* Dabbe ki width mobile screen ke hisab se */
+  max-width: 300px;
+}
+
+button {
+  display: block;
+  margin: 15px auto 0 auto;
+  background-color: #ffcc00;
+  color: black;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/*menu bar ka main dabba*/
+.navbar {
+    background-color: #333;
+    overflow: hidden;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+/*menu inside links*/
+.navbar a{
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+/*jab link pe mouse/ungli le jaayen toh color badle*/
+.navbar a:hover {
+    background-color: #ffcc00;
+    color: black;
+}
+
+/*menu bar ke links ko line mei lane k liya*/
+.navbar a{
+    display: inline-block !important;
+    float: none !important;
+    background-color: transparent !important; /* menu k andar ka red hatane k liya*/
+    color: white !important;
+    padding: 10px 15px !important;
+}
+
+.navbar a:hover {
+    background-color: #ffcc00 !important;
+    color:black !important;
+}
+/*menu bar k liya animation define krna*/
+@keyframes slideDown {
+    form { transform: translateY (-50px); opacity: 0;}
+    to { transform: translatey ( 0); opacity: 1;}
+}
+
+/* navbar animation*/
+.navbar {
+    animation: slideDown 0.8s ease-out/css
+}
+/*success message k liya fade in animation*/
+@keyframes fadeIn {
+    form { opacity: 0; transform: scale (0.9);}
+    to{ opacity: 1; transform: scale(1);}
+}
+#successMessage {
+    animation: fadeIn 0.5s ease-in-out;
+}
+/* Jab screen 600px se badi ho (yaani Laptop/Tablet) */
+@media screen and (min-width: 600px) {
+  .navbar {
+    display: flex;
+    justify-content: space-around; /* Links ke beech mein barabar jagah chhodega */
+    padding: 10px 0;
+  }
+  
+  .navbar a {
+    font-size: 18px !important; /* Laptop par thoda bada text */
+  }
+}
+
+/*heading ke liya style*/
+.section-title {
+    font-size: 24px;
+    color: #ffcc00; /*golden text*/
+    margin: 40px 0 20px 0;
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter spacing: 1px;
+}
+
+
+
+
+/*single project card style*/
+.project-card {
+    background-color: #222;
+    border-left: 5px solid #ffcc00; /* side mei golden line*/
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.project-card h3{
+    color: white;
+    margin-bottom: 8px;
+}
+
+.project-card p{
+    color: #bbb;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+html {
+    scroll-behaviour: smooth;
+}
+/* light mode ka magic*/
+body.light-mode {
+    background-color: #ffffff !important;
+    color: #111111 !important;
+}
+
+body.light-mode .project-card {
+    background-color: #f0f0f0 !important;
+    color: #111111 !important;
+}
+
+body.light-mode .project-card h3 {
+    color: #111111 !important;
+}
+
+body.light-mode .project-card p {
+    color: #444444 !important;
+}
+
