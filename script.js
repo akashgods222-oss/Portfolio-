@@ -1,5 +1,5 @@
-window.onload = function() {
-  const button = document.getElementById("myBtn");
+document.addEventListener("DOMContentLoaded", function() {
+   const button = document.getElementById("myBtn");
 
   if (button) {
     button.addEventListener("click", function() {
