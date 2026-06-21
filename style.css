@@ -179,13 +179,13 @@ body.light-mode {
 }
 
 /* 1. About Me ke text ko light mode mein black karne ke liye */
-body.light-mode div p, 
-body.light-mode p {
+body.light-mode.about-section, 
+body.light-mode.about-section p {
     color: #222222 !important;
 }
 
 /* 2. Skills ke naam (HTML5, CSS) ko light mode mein black karne ke liye */
-body.light-mode span {
+body.light-mode #skill-sec div span {
     color: #111111 !important;
 }
 
