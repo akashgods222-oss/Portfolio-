@@ -22,9 +22,9 @@ form.addEventListener("submit", async function(e) {
         headers: { 'Accept': 'application/json' }
     });
     
-    if (response.ok) {
+    if ( response.status === 200 || response.ok) {
         // Mail jaane ke baad screen par success message dikhao
-        document.getElementById("SuccessMessage").innerText = "Message sent successfully! In box check karo bhai. 🎉";
+        document.getElementById("SuccessMessage").innerText = "Message sent successfully! 🎉";
         form.reset(); // Form ke dabbe khaali karne ke liye
     } else {
         document.getElementById("SuccessMessage").innerText = "Opps! Kuch gadbad hui.";
