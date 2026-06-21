@@ -109,12 +109,13 @@
 <div id="contact-sec" style="max-width: 500px; margin: 40px auto; padding: 20px 15px; text-align: center; color: #fff;">
     <h2 style="font-size: 24px; color: #ffcc00; margin-bottom: 20px; text-transform: uppercase; font-weight: bold;">Contact Me</h2>
     
-    <form style="display: flex; flex-direction: column; gap: 15px;">
-        <input type="text" placeholder="Enter your name" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #ffcc00; background-color: #222; color: #fff; font-size: 16px; box-sizing: border-box;" required>
+    
+  <form action="https://formspree.io/f/YOUR_UNIQUE_KEY" method="POST">
+        <input type="text" name="name" placeholder="Enter your name" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #ffcc00; background-color: #222; color: #fff; font-size: 16px; box-sizing: border-box;" required>
         
-        <input type="email" placeholder="Enter your email" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #ffcc00; background-color: #222; color: #fff; font-size: 16px; box-sizing: border-box;" required>
+        <input type="email" name="email" placeholder="Enter your email" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #ffcc00; background-color: #222; color: #fff; font-size: 16px; box-sizing: border-box;" required>
         
-        <textarea placeholder="Your Message" rows="4" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #ffcc00; background-color: #222; color: #fff; font-size: 16px; box-sizing: border-box; resize: none;"></textarea>
+        <textarea name="message" placeholder="Your Message" rows="4" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #ffcc00; background-color: #222; color: #fff; font-size: 16px; box-sizing: border-box; resize: none;"></textarea>
         
         <button type="submit" style="background-color: #ffcc00; color: #111; font-weight: bold; padding: 12px; border: none; border-radius: 8px; cursor: pointer; font-size: 16px; text-transform: uppercase; box-shadow: 0 4px 10px rgba(255, 204, 0, 0.3);">Submit Form</button>
     </form>
