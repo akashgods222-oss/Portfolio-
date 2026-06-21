@@ -9,17 +9,27 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     // --- Form Submission ---
-    const pooraForm = document.querySelector("form");
-    if (pooraForm) {
-        pooraForm.addEventListener("submit", function(e) {
-            e.preventDefault(); // Page reload hone se rokne ke liye
-            const msgDabba = document.getElementById("successMessage");
-            if (msgDabba) {
-                pooraForm.style.display = "none";
-                msgDabba.innerHTML = "Thank you, Akash bhai! Form ekdum sahi submit ho gaya hai. 🔥";
-            }
-        });
+    const form = document.querySelector("form");
+form.addEventListener("submit", async function(e) {
+    e.preventDefault(); // Pehle default submit roko
+    
+    const formData = new FormData(form);
+    
+    // Yeh code background mein chupke se Formspree ko data bhej dega
+    const response = await fetch(form.action, {
+        method: form.method,
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+    });
+    
+    if (response.ok) {
+        // Mail jaane ke baad screen par success message dikhao
+        document.getElementById("SuccessMessage").innerText = "Message sent successfully! In box check karo bhai. 🎉";
+        form.reset(); // Form ke dabbe khaali karne ke liye
+    } else {
+        document.getElementById("SuccessMessage").innerText = "Opps! Kuch gadbad hui.";
     }
+});
 
     // --- Project Popup Modal ---
     const horrorCard = document.getElementById("horrorCard");
