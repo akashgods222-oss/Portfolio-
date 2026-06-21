@@ -171,12 +171,25 @@ button {
 html {
     scroll-behaviour: smooth;
 }
+
 /* light mode ka magic*/
 body.light-mode {
     background-color: #ffffff !important;
     color: #111111 !important;
 }
 
+/* 1. About Me ke text ko light mode mein black karne ke liye */
+body.light-mode div p, 
+body.light-mode p {
+    color: #222222 !important;
+}
+
+/* 2. Skills ke naam (HTML5, CSS) ko light mode mein black karne ke liye */
+body.light-mode span {
+    color: #111111 !important;
+}
+
+/* 3. Project cards ka background aur text fix karne ke liye */
 body.light-mode .project-card {
     background-color: #f0f0f0 !important;
     color: #111111 !important;
