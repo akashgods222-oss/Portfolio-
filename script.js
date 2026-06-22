@@ -40,7 +40,7 @@ function initFormSubmission() {
                 document.getElementById("SuccessMessage").innerText = "Message sent successfully! 🎉";
                 
                 // 🔥 Aaj ka challenge: User ko dynamic alert box dikhana
-                alert("Thank you Akash! Aapka message mujhe mil gaya hai. 👍");
+                alert("Thank you! Aapka message mujhe mil gaya hai. 👍");
                 
                 form.reset(); 
             } else {
