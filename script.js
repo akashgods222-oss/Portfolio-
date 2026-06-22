@@ -1,44 +1,78 @@
 document.addEventListener("DOMContentLoaded", function() {
-    
-    // --- Theme Toggle ---
+    // Saare functions ko initialize (start) karne ke liye
+    initThemeToggle();
+    initFormSubmission();
+    initProjectModal();
+});
+
+// ========================================================
+// 1. Theme Toggle Function (Re-usable block)
+// ========================================================
+function initThemeToggle() {
     const themeBtn = document.getElementById("themeToggle");
     if (themeBtn) {
         themeBtn.addEventListener("click", function() {
             document.body.classList.toggle("light-mode");
         });
     }
+}
 
-    // --- Form Submission ---
+// ========================================================
+// 2. Form Submission Function with Alert Customization
+// ========================================================
+function initFormSubmission() {
     const form = document.querySelector("form");
-form.addEventListener("submit", async function(e) {
-    e.preventDefault(); // Pehle default submit roko
-    
-    const formData = new FormData(form);
-    
-    // Yeh code background mein chupke se Formspree ko data bhej dega
-    const response = await fetch(form.action, {
-        method: form.method,
-        body: formData,
-        headers: { 'Accept': 'application/json' }
-    });
-    
-    if ( response.status === 200 || response.ok) {
-        // Mail jaane ke baad screen par success message dikhao
-        document.getElementById("SuccessMessage").innerText = "Message sent successfully! 🎉";
-        form.reset(); // Form ke dabbe khaali karne ke liye
-    } else {
-        document.getElementById("SuccessMessage").innerText = "Opps! Kuch gadbad hui.";
-    }
-});
+    if (!form) return;
 
-    // --- Project Popup Modal ---
+    form.addEventListener("submit", async function(e) {
+        e.preventDefault(); 
+        
+        const formData = new FormData(form);
+        
+        try {
+            const response = await fetch(form.action, {
+                method: form.method,
+                body: formData,
+                headers: { 'Accept': 'application/json' }
+            });
+            
+            if (response.ok) {
+                document.getElementById("SuccessMessage").innerText = "Message sent successfully! 🎉";
+                
+                // 🔥 Aaj ka challenge: User ko dynamic alert box dikhana
+                alert("Thank you Akash! Aapka message mujhe mil gaya hai. 👍");
+                
+                form.reset(); 
+            } else {
+                document.getElementById("SuccessMessage").innerText = "Oops! Kuch gadbad hui.";
+            }
+        } catch (error) {
+            document.getElementById("SuccessMessage").innerText = "Network issue! Baad mein try karein.";
+        }
+    });
+}
+
+// ========================================================
+// 3. Project Modal Function (With Event Bubbling Fix)
+// ========================================================
+function initProjectModal() {
     const horrorCard = document.getElementById("horrorCard");
     const projectModal = document.getElementById("projectModal");
     const closeModal = document.getElementById("closeModal");
+    
+    // 👇 Horror Card ke andar jo YouTube button hai use select kiya
+    const ytButton = horrorCard ? horrorCard.querySelector("button") : null;
 
     if (horrorCard && projectModal) {
         horrorCard.addEventListener("click", function() {
             projectModal.style.display = "flex";
+        });
+    }
+
+    // 🛑 MASTER STROKE: Jab user youtube button dabaye, toh modal NA khule!
+    if (ytButton) {
+        ytButton.addEventListener("click", function(e) {
+            e.stopPropagation(); // Yeh line click ko card tak jaane se rok degi!
         });
     }
 
@@ -47,4 +81,4 @@ form.addEventListener("submit", async function(e) {
             projectModal.style.display = "none";
         });
     }
-});
+}
