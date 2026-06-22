@@ -188,6 +188,14 @@ body.light-mode.about-section p {
 body.light-mode #skill-sec div span {
     color: #111111 !important;
 }
+/* Skills ke left side wale text ko light mode mein black karne ke liye */
+body.light-mode #skills-sec span,
+body.light-mode .skills-container span,
+body.light-mode span:first-child {
+    color: #111111 !important;
+    text-shadow: none !important; /* Agar koi purana shadow chamak raha ho toh usey hatane ke liye */
+    opacity: 1 !important;
+}
 
 /* 3. Project cards ka background aur text fix karne ke liye */
 body.light-mode .project-card {
