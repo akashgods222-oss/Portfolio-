@@ -52,16 +52,17 @@ function initFormSubmission() {
     });
 }
 
+
 // ========================================================
-// 3. Project Modal Function (With Event Bubbling Fix)
+// 3. Project Modal Function (With Final Event Bubbling Fix)
 // ========================================================
 function initProjectModal() {
     const horrorCard = document.getElementById("horrorCard");
     const projectModal = document.getElementById("projectModal");
     const closeModal = document.getElementById("closeModal");
     
-    // 👇 Horror Card ke andar jo YouTube button hai use select kiya
-    const ytButton = horrorCard ? horrorCard.querySelector("button") : null;
+    // 👇 CARD KE ANDAR JO 'A' TAG (LINK) HAI, USE TARGET KIYA
+    const ytLink = horrorCard ? horrorCard.querySelector("a") : null;
 
     if (horrorCard && projectModal) {
         horrorCard.addEventListener("click", function() {
@@ -69,10 +70,10 @@ function initProjectModal() {
         });
     }
 
-    // 🛑 MASTER STROKE: Jab user youtube button dabaye, toh modal NA khule!
-    if (ytButton) {
-        ytButton.addEventListener("click", function(e) {
-            e.stopPropagation(); // Yeh line click ko card tak jaane se rok degi!
+    // 🛑 BRAKE SYSTEM: Link aur Button dono ke click ko card tak jaane se rok diya
+    if (ytLink) {
+        ytLink.addEventListener("click", function(e) {
+            e.stopPropagation(); // Yeh line click ka signal upar card tak nahi jaane degi!
         });
     }
 
